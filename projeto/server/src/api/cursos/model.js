@@ -1,7 +1,6 @@
 const restfull = require('node-restful');
-const mongoose = restfull.mongoose;
 
-const modelo = new mongoose.Schema({
+const modelo = new restfull.mongoose.Schema({
     codigo : {type: Number, required: true},
     descricao : { type: String, required : true},
     cargaHoraria : {type: Number, required: true, min: 4, max: 2000},

@@ -4,6 +4,12 @@ module.exports = server => {
     const router = express.Router();
     server.use('/api', router);
 
-    const serviceCursos = require('../api/cursos/service');
-    serviceCursos.register(router, '/cursos');
+    const cursosService = require('../api/cursos/service');
+    cursosService.register(router, '/cursos');
+
+    const contatoService = require('../api/contatos/service');
+    contatoService.register(router, '/contatos');
+
+    const compromissoService = require('../api/compromissos/service');
+    compromissoService.register(router, '/compromissos');
 }

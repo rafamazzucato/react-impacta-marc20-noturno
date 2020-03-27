@@ -9,6 +9,7 @@ function App() {
     <Switch>
         <Route path='/exemplo1' component={Componente1}/>
         <Route path='/exemplo2' component={Componente2}/>
+        <Route path='*' component={Componente1}/>
     </Switch>
   );
 }

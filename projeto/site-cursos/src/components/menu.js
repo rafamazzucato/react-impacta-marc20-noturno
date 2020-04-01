@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link}from 'react-router-dom';
+import {connect} from 'react-redux';
 
-export const Menu = _ => (
+const Menu = props => (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">
             ABC Courses
@@ -17,7 +18,7 @@ export const Menu = _ => (
         <div className="collapse navbar-collapse" id="navbarContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/cursos">Cursos</Link>
+                    <Link className="nav-link" to="/cursos">Cursos ({props.total})</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/contato">Contato</Link>
@@ -25,3 +26,10 @@ export const Menu = _ => (
             </ul> </div>
     </nav>
 );
+
+const mapStoreToProps = store => ({
+    total: store.curso.lista.length || 0,
+})
+
+const conectado = connect(mapStoreToProps, null)(Menu);
+export { conectado as Menu};
